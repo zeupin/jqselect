@@ -7,7 +7,7 @@
 第1步, 引入jquery和jquery.jqselect.js
 
 ```html
-<script src="/path/to/your/jquery.min.js"></script>
+<script src="/path/to/jquery.min.js"></script>
 <script src="/path/to/jquery.jqselect.js"></script>
 ```
 
