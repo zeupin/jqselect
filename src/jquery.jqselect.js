@@ -6,24 +6,32 @@
  * @license MIT License (see https://github.com/zeupin/jqselect/blob/master/LICENSE)
  *
  */
-(function ($) {
+(function($) {
   "use strict";
 
   /**
    * 插件的主函数
    */
-  $.fn.jqselect = function () {
+  $.fn.jqselect = function() {
     // 对需要使用就地编辑的元素逐个进行设置
-    return this.each(function (idx, ele) {
+    return this.each(function(idx, ele) {
       var j_ele = $(ele);
 
       if (ele.hasAttribute("data-options")) {
         try {
+          // 获取data-options传入的选项变量的名字
           var options = ele.getAttribute("data-options");
+
+          // 通过名字找到对应的选项变量
           options = eval(options);
+
+          // 清除当前选项列表
+          j_ele.empty();
+
+          // 重新生成选项列表
           for (var i in options) {
             var option = options[i];
-            var opt = $('<option/>');
+            var opt = $("<option/>");
             opt.text(option.caption);
             opt.attr("value", option.value);
             j_ele.append(opt);
